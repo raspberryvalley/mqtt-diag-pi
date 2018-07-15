@@ -19,6 +19,10 @@ All values are sent to topics using the pattern below. You can change the patter
 system/<hostname>/<measurementname>
 ```
 
+Below is an example where we monitor a camera solution for debugging, using a remote MQTT server (with Node-RED and Node-RED Dashboard) for impact of configuration settings.
+
+![monitoring](img/mqtt-diag-pi.jpg)
+
 ## Pre-requisites
 
 Before cloning the project, install the following components:
