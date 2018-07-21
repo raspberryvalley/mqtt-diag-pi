@@ -23,6 +23,10 @@ Below is an example where we monitor a camera solution for debugging, using a re
 
 ![monitoring](img/mqtt-diag-pi.jpg)
 
+**Note**: you can get quickly started by modifying our dashboard: just import the file content from **mqtt-diag-pi-ui.json** into your Node-RED dashboard and get hacking to your liking. Please make sure that you first replace all occurences of "MYHOSTNAME" with the hostname of the PI you are monitoring
+
+![replace here](img/replace_hostname.jpg)
+
 ## Pre-requisites
 
 Before cloning the project, install the following components:
