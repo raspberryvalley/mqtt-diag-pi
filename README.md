@@ -54,7 +54,13 @@ sudo pip install paho-mqtt
 * Install [psutil](https://psutil.readthedocs.io/en/latest/)
 
 ```bash
-pip install psutil
+sudo pip install psutil
+```
+
+* Apart from libraries listed above, you will also need to install [logzero](https://logzero.readthedocs.io/en/latest/) (our logging solution of choice)
+
+```bash
+sudo pip install logzero
 ```
 
 ## Running Diagnostics
