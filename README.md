@@ -6,6 +6,8 @@ Scenario: your killer app is not behaving as it should. Maybe the CPU is overloa
 
 This is a Python script, which collects system data and sends them to MQTT diagnostics topics, and to the console. If you use our [Raspberry Pi IoT Device](https://raspberry-valley.azurewebsites.net/IoT-Raspberry-Pi-Device/), then simply clone the script and run it. However, you don't have to have the image available: in such a case, just check the pre-requisites page and install only the required components.
 
+The script works both with Python 2.x and Python 3.x
+
 ## Diagnostics values sent
 
 * CPU Temperature \[C\]
@@ -43,6 +45,12 @@ sudo apt-get install git
 sudo apt-get install python-pip
 ```
 
+if using Python3 (recommended), install this instead:
+
+```bash
+sudo apt-get install python3-pip
+```
+
 * Either run the [Raspberry Pi IoT Device](https://raspberry-valley.azurewebsites.net/IoT-Raspberry-Pi-Device/), or install MQTT only. In the latter case, you will need to subscribe to the topics described below, or make use of the console monitoring only. For installation of MQTT (Mosquitto), you can find our guide [here](https://raspberry-valley.azurewebsites.net/Mosquitto/). Follow the full guide, you need the Paho libraries as well. Or simply follow the commands below:
 
 ```bash
@@ -57,10 +65,22 @@ sudo pip install paho-mqtt
 sudo pip install psutil
 ```
 
+with Python 3, use this instead:
+
+```bash
+sudo pip3 install psutil
+```
+
 * Apart from libraries listed above, you will also need to install [logzero](https://logzero.readthedocs.io/en/latest/) (our logging solution of choice)
 
 ```bash
 sudo pip install logzero
+```
+
+And alternatively for Python 3:
+
+```bash
+sudo pip3 install logzero
 ```
 
 ## Running Diagnostics
