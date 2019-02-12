@@ -79,6 +79,7 @@ try:
     cpuUsageTopic = config.cpu_usage_topic.format(computer_name)
     diskUsageTopic = config.disk_usage_topic.format(computer_name)
     memUsageTopic = config.mem_usage_topic.format(computer_name)
+    messageTopic = config.message_topic.format(computer_name)
     # run system measurements in continuous loop
     while True:
         temp = get_temp()
