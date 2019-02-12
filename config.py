@@ -22,7 +22,8 @@ cpu_usage_topic = "system/{0}/cpuusage"
 disk_usage_topic = "system/{0}/diskusage"
 mem_usage_topic = "system/{0}/memusage"
 
-# Message topic: this topic sends all cumulative data in JSON format
+# Message topic: this topic sends all cumulative data in JSON format. Used for integrating with web services
+# or event hubs and similar
 message_topic = "system/{0}/message"
 
 # Frequency of updates (delay in seconds)

@@ -9,6 +9,8 @@
 # * Memory Usage Percentage [%]
 #
 # Messages are published to the topic: system/<hostname>/<measurementname>
+# Further, a cumulative JSON object with the measurement data is published
+# to the topic: system/<hostname>/<measurementname>/message
 #
 # Channels and parameters are defined in config.py
 #
@@ -91,6 +93,10 @@ try:
         pidiagClient.publish(cpuUsageTopic, cpu_usage)
         pidiagClient.publish(diskUsageTopic, disk_usage)
         pidiagClient.publish(memUsageTopic, memory_usage)
+
+        # publish the JSON message (only JSON formatted string is sent) with cummulative results
+        jsonData = '"host": "{0}", "cputemp": {1}, "cpuusage": {2}, "diskusage": {3}, "memusage": {4}'.format(computer_name, temp, cpu_usage, disk_usage, memory_usage)
+        pidiagClient.publish(messageTopic, '{' + jsonData + '}')
 
         logger.info("system diagnostics [{0}]: CPU temp {1}[C], CPU usage {2}[%], Disk usage {3}[%], Memory usage {4}[%]".format(computer_name, temp, cpu_usage, disk_usage, memory_usage))
         time.sleep(config.diag_sleep)
