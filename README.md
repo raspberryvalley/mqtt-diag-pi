@@ -4,9 +4,11 @@ We present a [Raspberry Valley](https://raspberry-valley.azurewebsites.net) appr
 
 Scenario: your killer app is not behaving as it should. Maybe the CPU is overloaded, maybe the Pi is overheating, maybe you have consumed all memory. Enter the diagnostics tool: you can monitor remotely, or in a console window how your app is consuming resources.
 
+![mqtt-diag-pi in action](img/mqtt-diag-pi.gif)
+
 This is a Python script, which collects system data and sends them to MQTT diagnostics topics, and to the console. If you use our [Raspberry Pi IoT Device](https://raspberry-valley.azurewebsites.net/IoT-Raspberry-Pi-Device/), then simply clone the script and run it. However, you don't have to have the image available: in such a case, just check the pre-requisites page and install only the required components.
 
-The script works both with Python 2.x and Python 3.x
+The script works both with Python 2.x and Python 3.x. On the Dashboard side, you can use our Node-RED configuration for a Node-RED Dashboard, or use the message flow described below to send data say to Azure IoT Hub (or other solutions)
 
 ## Diagnostics values sent
 
@@ -14,6 +16,8 @@ The script works both with Python 2.x and Python 3.x
 * CPU Load Percentage \[%\]
 * Disk Usage Percentage \[%\]
 * Memory Usage Percentage \[%\]
+
+Further, we send a cumulative json object with all values at once.
 
 All values are sent to topics using the pattern below. You can change the pattern in **config.py**
 
@@ -28,6 +32,10 @@ Below is an example where we monitor a camera solution for debugging, using a re
 **Note**: you can get quickly started by modifying our dashboard: just import the file content from **mqtt-diag-pi-ui.json** into your Node-RED dashboard and get hacking to your liking. Please make sure that you first replace all occurences of "MYHOSTNAME" with the hostname of the PI you are monitoring
 
 ![replace here](img/replace_hostname.jpg)
+
+You can also replace the hostname directly in Node-RED MQTT nodes, as shown below:
+
+![replace in nodered](img/replace_hostname_nr.jpg)
 
 ## Pre-requisites
 
@@ -71,7 +79,7 @@ with Python 3, use this instead:
 sudo pip3 install psutil
 ```
 
-* Apart from libraries listed above, you will also need to install [logzero](https://logzero.readthedocs.io/en/latest/) (our logging solution of choice)
+* Apart from libraries listed above, you will also need to install [logzero](https://logzero.readthedocs.io/en/latest/) (our logging solution of choice for this project)
 
 ```bash
 sudo pip install logzero
