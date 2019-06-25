@@ -111,3 +111,12 @@ python mqtt-diag-pi.py
 
 * With the default settings, your local MQTT server now receives updates every 5 seconds, and also your console log gives a summary of the measurements
 * Time to get creative and use NODE-RED dashobard itself, or send the data to another machine running MQTT
+
+## Links
+
+Raspberry Valley makerspace links
+
+* [Raspberry Valley](https://raspberry-valley.azurewebsites.net) - Other things we make and do
+* [Raspberry Valley on Twitter](https://twitter.com/RaspberryValley)
+* [Raspberry Valley on Github](https://github.com/raspberryvalley)
+* [Raspberry Valley Docker Hub Images](hub.docker.com/r/raspberryvalley/)
