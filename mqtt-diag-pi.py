@@ -20,24 +20,28 @@
 # No warranty is provided or implied
 #
 # Pre-Requisites:
+#
 # install Mosquitto: sudo apt-get install mosquitto mosquitto-clients
 # install psutil: pip install psutil (or: sudo apt-get install python-psutil)
 # install paho: paho sudo pip install paho-mqtt
-# install logzero: pip install logzero
 #
 #======================================================================
+
+import logging
 
 try:
     import paho.mqtt.client as paho # https://raspberry-valley.azurewebsites.net/Mosquitto/
     import psutil # https://psutil.readthedocs.io/en/latest/
-    from logzero import logger # https://www.metachris.com/2017/06/logzero---simplified-logging-for-python-2-and-3/
 except ImportError:
-    exit("This script requires the following modules (Install with):\n sudo pip install paho-mqtt\n sudo pip install psutil\n sudo pip install logzero")
+    exit("This script requires the following modules (Install with):\n sudo pip install paho-mqtt\n sudo pip install psutil")
 
 import config
 from subprocess import check_output
 from re import findall
 import socket, sys, time
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(format=config.LOG_FORMAT, level=config.LOG_LEVEL)
 
 #======================================================================
 # MQTT broker code

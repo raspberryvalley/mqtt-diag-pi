@@ -79,18 +79,6 @@ with Python 3, use this instead:
 sudo pip3 install psutil
 ```
 
-* Apart from libraries listed above, you will also need to install [logzero](https://logzero.readthedocs.io/en/latest/) (our logging solution of choice for this project)
-
-```bash
-sudo pip install logzero
-```
-
-And alternatively for Python 3:
-
-```bash
-sudo pip3 install logzero
-```
-
 ## Running Diagnostics
 
 You have several options on how to run the diagnostics.
